@@ -93,3 +93,37 @@ def calculate_dog_years():
     print(f"The dog's age in dog years is {dog_years}.")
 
 # calculate_dog_years()
+
+
+# Exercise 4: Weather Advice
+#
+# Write a Python script named `weather_advice` that provides clothing advice based on weather conditions.
+#
+# Requirements:
+# - The script should prompt the user to enter if it is cold (yes/no).
+# - Then, ask if it is raining (yes/no).
+# - Use logical operators to determine clothing advice:
+#   - If it is cold AND raining, print "Wear a waterproof coat."
+#   - If it is cold BUT NOT raining, print "Wear a warm coat."
+#   - If it is NOT cold but raining, print "Carry an umbrella."
+#   - If it is NOT cold AND NOT raining, print "Wear light clothing."
+#
+# Hints:
+# - Use logical operators (`AND`, `OR`, `NOT`) in your if statements to handle multiple conditions.
+
+def weather_advice():
+    weather = input('Is the weather cold? (yes/no)').strip().lower()
+    rain = input('Is it raining ? (yes/no)').strip().lower()
+
+    if rain == 'yes' and weather == 'yes':
+        print('Wear a waterproof coat.')
+    elif weather == 'yes' and not rain == 'yes':
+        print('Wear a warm coat.')
+    elif rain == 'yes' and not weather == 'yes':
+        print('Carry an umbrella')
+    else:
+        print('Wear light clothing')
+
+
+   
+# weather_advice()
