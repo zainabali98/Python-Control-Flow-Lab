@@ -151,19 +151,37 @@ def weather_advice():
 # - Adjust the season based on the day of the month when needed.
 # - Ensure to validate input formats and handle unexpected inputs gracefully.
 
+
 def determine_season():
     month = input("Enter the month of the year (Jan - Dec): ").strip().title()
-    day = int(input('Enter the day of the month:'))
+    day = int(input('Enter the day of the month: '))
+
+    # Validate date
+    if month not in ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
+                     'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']:
+        print('Invalid month.')
+        return
+    elif month == 'Feb' and day > 28:
+        print('Invalid date.')
+        return
+    elif month in ['Apr', 'Jun', 'Sep', 'Nov'] and day > 30:
+        print('Invalid date.')
+        return
+    elif day > 31 or day < 1:
+        print('Invalid date.')
+        return
+
+    # Determine season
     if month == 'Dec' and day >= 21:
         season = 'Winter'
     elif month in ['Jan', 'Feb']:
         season = 'Winter'
     elif month == 'Mar' and day <= 19:
-        season = "Winter"
+        season = 'Winter'
     elif month == 'Mar' and day >= 20:
         season = 'Spring'
     elif month in ['Apr', 'May']:
-        season = "Spring"
+        season = 'Spring'
     elif month == 'Jun' and day <= 20:
         season = 'Spring'
     elif month == 'Jun' and day >= 21:
@@ -178,26 +196,12 @@ def determine_season():
         season = 'Fall'
     elif month == 'Dec' and day <= 20:
         season = 'Fall'
-    elif month == 'Feb' and day > 28:
-        print('Invalid date.')
-        return
-    elif month in ['Apr', 'Jun', 'Sep', 'Nov'] and day > 30:
-        print('Invalid date.')
-        return
-    elif day > 31 or day < 1:
-        print('Invalid date.')
-        return
-
-    else:
-        print('Invalid month or date.')
-        return
 
     print(f'{month} {day} is in {season}.')
-    
-    
-    
-    
+
+
 determine_season()
+
 
 
 
